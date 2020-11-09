@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "558420290668",
+    "firebase_url": "https://karmag11-42220.firebaseio.com",
+    "project_id": "karmag11-42220",
+    "storage_bucket": "karmag11-42220.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:558420290668:android:604238e3aacc1f04243c49",
+        "android_client_info": {
+          "package_name": "com.uninorte.KarmaG11"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "558420290668-ofbpslou87r3s1j5jq8fk1frbhjhgq8q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8MlAtFvTNh1sXhMGTUcpzmHtsAa2L__Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "558420290668-ofbpslou87r3s1j5jq8fk1frbhjhgq8q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
