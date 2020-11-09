@@ -5,27 +5,39 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class LoginView extends StatelessWidget {
+  final controllerEmail = TextEditingController();
+  final controllerPassword = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Log In"),
+          title: Text("Karma G11"),
         ),
         body: Center(
           child: Column(
             children: [
+              SizedBox(height: 20),
+              Text('LogIn'),
+              TextFormField(
+                controller: this.controllerEmail,
+                keyboardType: TextInputType.emailAddress,
+                decoration: InputDecoration(labelText: "Email address"),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              TextFormField(
+                controller: this.controllerPassword,
+                keyboardType: TextInputType.text,
+                obscureText: true,
+                decoration: InputDecoration(labelText: "Password"),
+              ),
               Consumer<AuthProvider>(builder: (context, model, child) {
                 return FlatButton(
                   onPressed: () {
-                    signOutFirebase();
-                  },
-                  child: Text('Logout'),
-                );
-              }),
-              Consumer<AuthProvider>(builder: (context, model, child) {
-                return FlatButton(
-                  onPressed: () {
-                    _login(context, "a@a.com", "123456", model);
+                    _login(context, controllerEmail.text,
+                        controllerPassword.text, model);
                   },
                   child: Text('Login'),
                 );

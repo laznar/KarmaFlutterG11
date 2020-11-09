@@ -13,7 +13,7 @@ class BaseApp extends StatelessWidget {
         create: (context) => AuthProvider(),
         child: MaterialApp(
             debugShowCheckedModeBanner: false,
-            title: 'Demo',
+            title: 'Karma G11',
             home: Consumer<AuthProvider>(
               builder: (context, model, child) {
                 if (model.getLogged) {

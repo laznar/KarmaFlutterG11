@@ -12,6 +12,7 @@ class _SignInViewState extends State<SignInView> {
   final _formKey = GlobalKey<FormState>();
   final controllerEmail = TextEditingController();
   final controllerPassword = TextEditingController();
+  final controllerName = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +33,11 @@ class _SignInViewState extends State<SignInView> {
                     style: TextStyle(fontSize: 20),
                   ),
                   TextFormField(
+                    controller: this.controllerName,
+                    keyboardType: TextInputType.name,
+                    decoration: InputDecoration(labelText: "Name"),
+                  ),
+                  TextFormField(
                     controller: this.controllerEmail,
                     keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(labelText: "Email address"),
@@ -44,12 +50,9 @@ class _SignInViewState extends State<SignInView> {
                       return null;
                     },
                   ),
-                  SizedBox(
-                    height: 20,
-                  ),
                   TextFormField(
                     controller: this.controllerPassword,
-                    keyboardType: TextInputType.number,
+                    keyboardType: TextInputType.text,
                     obscureText: true,
                     decoration: InputDecoration(labelText: "Password"),
                     validator: (value) {
@@ -70,7 +73,7 @@ class _SignInViewState extends State<SignInView> {
                       form.save();
                       if (_formKey.currentState.validate()) {
                         _signUp(context, controllerEmail.text,
-                            controllerPassword.text, "Augusto");
+                            controllerPassword.text, controllerName.text);
                       }
                     },
                     color: Colors.blueAccent,
