@@ -7,12 +7,20 @@ final FirebaseAuth _auth = FirebaseAuth.instance;
 final db = Firestore.instance;
 User currentSignedInUser;
 
+get _getFirebaseUID async {
+  final FirebaseUser user = await _auth.currentUser();
+  final uid = user.uid;
+  return uid;
+}
+
 Future<String> signInWithFirebase(email, password) async {
   var fbuser;
   try {
     fbuser = (await _auth.signInWithEmailAndPassword(
         email: email, password: password));
-    print("OK");
+    final FirebaseUser user = await _auth.currentUser();
+    final uid = user.uid;
+    print("OK" + uid);
     return Future.value("OK");
   } catch (error) {
     print('ERRORS');

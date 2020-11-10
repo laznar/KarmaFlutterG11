@@ -1,4 +1,5 @@
 import 'package:KarmaG11/backend/firebase_auth.dart';
+import 'package:KarmaG11/models/karma_model.dart';
 import 'package:KarmaG11/providers/authProvider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -7,20 +8,7 @@ import 'package:provider/provider.dart';
 class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Home"),
-        actions: [
-          IconButton(
-              icon: const Icon(Icons.exit_to_app),
-              onPressed: () {
-                signOutFirebase();
-                Provider.of<AuthProvider>(context, listen: false).setLogged();
-              }),
-        ],
-      ),
-      body: _buildBody(context),
-    );
+    return _buildBody(context);
   }
 
   Widget _buildBody(BuildContext context) {
@@ -42,10 +30,10 @@ class HomeView extends StatelessWidget {
   }
 
   Widget _buildListItem(BuildContext context, DocumentSnapshot data) {
-    final record = Record.fromSnapshot(data);
+    final karma = Karma.fromSnapshot(data);
 
     return Padding(
-      key: ValueKey(record.name),
+      key: ValueKey(karma.name),
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
       child: Container(
         decoration: BoxDecoration(
@@ -53,29 +41,11 @@ class HomeView extends StatelessWidget {
           borderRadius: BorderRadius.circular(5.0),
         ),
         child: ListTile(
-          title: Text(record.name),
-          trailing: Text(record.votes.toString()),
-          onTap: () => record.reference.updateData({'votes': record.votes + 1}),
+          title: Text(karma.name),
+          trailing: Text(karma.votes.toString()),
+          onTap: () => karma.reference.updateData({'votes': karma.votes + 1}),
         ),
       ),
     );
   }
-}
-
-class Record {
-  final String name;
-  final int votes;
-  final DocumentReference reference;
-
-  Record.fromMap(Map<String, dynamic> map, {this.reference})
-      : assert(map['name'] != null),
-        assert(map['votes'] != null),
-        name = map['name'],
-        votes = map['votes'];
-
-  Record.fromSnapshot(DocumentSnapshot snapshot)
-      : this.fromMap(snapshot.data, reference: snapshot.reference);
-
-  @override
-  String toString() => "Record<$name:$votes>";
 }

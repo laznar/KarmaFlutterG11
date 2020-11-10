@@ -1,5 +1,5 @@
 import 'package:KarmaG11/backend/firebase_auth.dart';
-import 'package:KarmaG11/pages/signup.dart';
+import 'package:KarmaG11/pages/signup_page.dart';
 import 'package:KarmaG11/providers/authProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -36,7 +36,7 @@ class LoginView extends StatelessWidget {
               Consumer<AuthProvider>(builder: (context, model, child) {
                 return FlatButton(
                   onPressed: () {
-                    _login(context, controllerEmail.text,
+                    _login(context, controllerEmail.text.trim(),
                         controllerPassword.text, model);
                   },
                   child: Text('Login'),
