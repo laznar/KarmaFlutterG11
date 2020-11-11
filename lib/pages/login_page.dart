@@ -14,110 +14,113 @@ class LoginView extends StatelessWidget {
         appBar: AppBar(
           title: Text("G11"),
         ),
-        body: Center(
-          child: Column(
-            children: [
-              SizedBox(height: 20),
-              Container(
-                alignment: Alignment.center,
-                padding: EdgeInsets.all(0),
-                child: Image.asset('assets/karma.png'),/*Text(
-                      'KARMA',
-                      style: TextStyle(
-                          color: Colors.indigo[900],
-                          fontWeight: FontWeight.w500,
-                          fontSize: 30),
-                    )*/),
-              Container(
-                alignment: Alignment.center,
-                padding: EdgeInsets.all(0),
-                child: Text(
-                      'Login',
-                      style: TextStyle(
+        body: SingleChildScrollView(
+          child: Center(
+
+            child: Column(
+              children: [
+                SizedBox(height: 20),
+                Container(
+                  alignment: Alignment.center,
+                  padding: EdgeInsets.all(0),
+                  child: Image.asset('assets/karma.png'),/*Text(
+                        'KARMA',
+                        style: TextStyle(
+                            color: Colors.indigo[900],
+                            fontWeight: FontWeight.w500,
+                            fontSize: 30),
+                      )*/),
+                Container(
+                  alignment: Alignment.center,
+                  padding: EdgeInsets.all(0),
+                  child: Text(
+                        'Login',
+                        style: TextStyle(
+                            color: Colors.blue,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 30),
+                      )),
+
+                SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  padding: EdgeInsets.all(10),
+                  child: TextFormField(
+                    keyboardType: TextInputType.emailAddress,
+                    controller: this.controllerEmail,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Email',
+                    ),
+                  ),
+                ),
+                Container(
+
+                  padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
+                  child: TextFormField(
+                    obscureText: true,
+                    keyboardType: TextInputType.text,
+                    controller: this.controllerPassword,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Password',
+                    ),
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Consumer<AuthProvider>(builder: (context, model, child) {
+                      return
+
+                        Container(
+                          margin: EdgeInsets.all(10),
+                          child:RaisedButton(
+
+                          padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                          textColor: Colors.white,
                           color: Colors.blue,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 30),
-                    )),
-
-              SizedBox(
-                height: 20,
-              ),
-              Container(
-                padding: EdgeInsets.all(10),
-                child: TextField(
-                  keyboardType: TextInputType.emailAddress,
-                  controller: this.controllerEmail,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Email',
-                  ),
-                ),
-              ),
-              Container(
-
-                padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
-                child: TextField(
-                  obscureText: true,
-                  keyboardType: TextInputType.text,
-                  controller: this.controllerPassword,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Password',
-                  ),
-                ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Consumer<AuthProvider>(builder: (context, model, child) {
-                    return
-
-                      Container(
-                        margin: EdgeInsets.all(10),
-                        child:RaisedButton(
-
-                        padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                        textColor: Colors.white,
-                        color: Colors.blue,
-                        child: Text(
-                          'Login',
-                          style: TextStyle(
-                            fontSize: 18.0,
+                          child: Text(
+                            'Login',
+                            style: TextStyle(
+                              fontSize: 18.0,
+                            ),
                           ),
-                        ),
-                        onPressed: () {
-                          _login(context, controllerEmail.text.trim(),
-                              controllerPassword.text, model);
-                        },
+                          onPressed: () {
+                            _login(context, controllerEmail.text.trim(),
+                                controllerPassword.text, model);
+                          },
+                        )
+                        );
+                    }),
+                    Consumer<AuthProvider>(builder: (context, model, child) {
+                      return Container(
+                          margin: EdgeInsets.all(10),
+                          child:RaisedButton(
+                          textColor: Colors.white,
+                          color: Colors.blue,
+                          child: Text(
+                            'Sign up',
+                            style: TextStyle(
+                              fontSize: 18.0,
+                            ),
+                          ),
+                          onPressed: () {
+                            Navigator.of(context).push(
+                                MaterialPageRoute(builder: (context) => SignInView()));
+                          },
                       )
                       );
-                  }),
-                  Consumer<AuthProvider>(builder: (context, model, child) {
-                    return Container(
-                        margin: EdgeInsets.all(10),
-                        child:RaisedButton(
-                        textColor: Colors.white,
-                        color: Colors.blue,
-                        child: Text(
-                          'Sign up',
-                          style: TextStyle(
-                            fontSize: 18.0,
-                          ),
-                        ),
-                        onPressed: () {
-                          Navigator.of(context).push(
-                              MaterialPageRoute(builder: (context) => SignInView()));
-                        },
-                    )
-                    );
-                  })
-                ],
+                    })
+                  ],
 
 
-              ),
+                ),
 
 
-            ],
+              ],
+            ),
           ),
         ));
   }

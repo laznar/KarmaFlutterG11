@@ -18,7 +18,7 @@ class _SignInViewState extends State<SignInView> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Sign Up"),
+          title: Text("G11"),
         ),
         body: Center(
           child: Container(
@@ -28,46 +28,73 @@ class _SignInViewState extends State<SignInView> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(
-                    "Sign Up Information",
-                    style: TextStyle(fontSize: 20),
+                  Container(
+                      alignment: Alignment.center,
+                      padding: EdgeInsets.fromLTRB(10, 50, 10, 10),
+                      child: Text(
+                        'Sign Up Information',
+                        style: TextStyle(
+                            color: Colors.blue,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 30),
+                      )),
+                  Container(
+                    padding: EdgeInsets.fromLTRB(10, 50, 10, 10),
+                    child: TextField(
+                      controller: this.controllerName,
+                      keyboardType: TextInputType.name,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: 'Name',
+                      ),
+                    ),
                   ),
-                  TextFormField(
-                    controller: this.controllerName,
-                    keyboardType: TextInputType.name,
-                    decoration: InputDecoration(labelText: "Name"),
+                  Container(
+                    padding: EdgeInsets.all(10),
+                    child: TextFormField(
+                      controller: this.controllerEmail,
+                      keyboardType: TextInputType.emailAddress,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: 'Email address',
+
+                      ),
+                      validator: (value) {
+                        if (value.isEmpty) {
+                          return "Enter email address";
+                        } else if (!value.contains('@')) {
+                          return "Enter valid email address";
+                        }
+                        return null;
+                      },
+                    ),
+
                   ),
-                  TextFormField(
-                    controller: this.controllerEmail,
-                    keyboardType: TextInputType.emailAddress,
-                    decoration: InputDecoration(labelText: "Email address"),
-                    validator: (value) {
-                      if (value.isEmpty) {
-                        return "Enter email address";
-                      } else if (!value.contains('@')) {
-                        return "Enter valid email address";
-                      }
-                      return null;
-                    },
-                  ),
-                  TextFormField(
-                    controller: this.controllerPassword,
-                    keyboardType: TextInputType.text,
-                    obscureText: true,
-                    decoration: InputDecoration(labelText: "Password"),
-                    validator: (value) {
-                      if (value.isEmpty) {
-                        return "Enter password";
-                      } else if (value.length < 6) {
-                        return "Password should have at least 6 characters";
-                      }
-                      return null;
-                    },
+
+                  Container(
+                    padding: EdgeInsets.all(10),
+                    child: TextFormField(
+                      controller: this.controllerPassword,
+                      keyboardType: TextInputType.text,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: 'Password',
+                      ),
+                      validator: (value) {
+                        if (value.isEmpty) {
+                          return "Enter password";
+                        } else if (value.length < 6) {
+                          return "Password should have at least 6 characters";
+                        }
+                        return null;
+                      },
+                    ),
                   ),
                   SizedBox(
                     height: 20,
                   ),
                   RaisedButton(
+                    padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
                     onPressed: () {
                       final form = _formKey.currentState;
                       form.save();
@@ -76,9 +103,14 @@ class _SignInViewState extends State<SignInView> {
                             controllerPassword.text, controllerName.text);
                       }
                     },
-                    color: Colors.blueAccent,
                     textColor: Colors.white,
-                    child: Text('Submit'),
+                    color: Colors.blue,
+                    child: Text(
+                      'Submit',
+                      style: TextStyle(
+                        fontSize: 18.0,
+                      ),
+                    ),
                   )
                 ],
               ),
