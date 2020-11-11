@@ -129,7 +129,7 @@ class LoginView extends StatelessWidget {
       BuildContext context, String email, String password, AuthProvider model) {
     signInWithFirebase(email, password).then((user) {
       print(user);
-      _buildDialog(context, "Login", "Login OK");
+      _buildDialog(context, "Login", "Login successful");
       model.setLogged();
     }).catchError((error) {
       _buildDialog(context, "Login", error.toString());
@@ -140,7 +140,7 @@ class LoginView extends StatelessWidget {
       AuthProvider model) {
     signUpWithFirebase(email, password, name).then((user) {
       print(user);
-      _buildDialog(context, "Login", "Login OK");
+      _buildDialog(context, "Login", "Login successfuls");
     }).catchError((error) {
       _buildDialog(context, "Sign Up", error.toString());
     });
@@ -150,15 +150,27 @@ class LoginView extends StatelessWidget {
     return showDialog(
       builder: (context) {
         return AlertDialog(
-          title: Text(_title),
+          title: Text(_title,
+            style: TextStyle(
+                color: Colors.blue,
+                fontWeight: FontWeight.w500,
+                fontSize: 30),
+          ),
           content: Text(_message),
           actions: <Widget>[
-            FlatButton(
-                child: Text('OK'),
+            RaisedButton(
+                textColor: Colors.white,
+                color: Colors.blue,
+                child: Text(
+                'OK',
+                style: TextStyle(
+                fontSize: 18.0,
+                ),
+                ),
                 onPressed: () {
                   Navigator.of(context).pop();
                 })
-          ],
+            ],
         );
       },
       context: context,

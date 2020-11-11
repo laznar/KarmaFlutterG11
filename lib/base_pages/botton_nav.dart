@@ -29,8 +29,18 @@ class _BottonNavigatorState extends State<BottonNavigator> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('KARMA'),
+        title: const Text('KARMA G11'),
         actions: [
+          IconButton(
+            icon: new CircleAvatar(
+                backgroundColor: Colors.red,
+                child: Text("0",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.w500))),
+            tooltip: 'Points', onPressed: () {  },
+          ),
           IconButton(
               icon: const Icon(Icons.exit_to_app),
               onPressed: () {
@@ -44,11 +54,11 @@ class _BottonNavigatorState extends State<BottonNavigator> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-          BottomNavigationBarItem(icon: Icon(Icons.chat), label: "Chat"),
+          BottomNavigationBarItem(icon: Icon(Icons.people), label: "Favors"),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: "My Favors"),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
+        selectedItemColor: Colors.blue,
         onTap: _onItemTapped,
       ),
     );

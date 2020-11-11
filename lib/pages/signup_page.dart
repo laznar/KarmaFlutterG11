@@ -74,6 +74,7 @@ class _SignInViewState extends State<SignInView> {
                   Container(
                     padding: EdgeInsets.all(10),
                     child: TextFormField(
+                      obscureText: true,
                       controller: this.controllerPassword,
                       keyboardType: TextInputType.text,
                       decoration: InputDecoration(
