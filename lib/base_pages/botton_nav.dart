@@ -29,7 +29,7 @@ class _BottonNavigatorState extends State<BottonNavigator> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('BottomNavigationBar Sample'),
+        title: const Text('KARMA'),
         actions: [
           IconButton(
               icon: const Icon(Icons.exit_to_app),
@@ -45,7 +45,7 @@ class _BottonNavigatorState extends State<BottonNavigator> {
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-          BottomNavigationBarItem(icon: Icon(Icons.business), label: "Chat"),
+          BottomNavigationBarItem(icon: Icon(Icons.chat), label: "Chat"),
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.amber[800],
