@@ -1,5 +1,7 @@
 import 'package:KarmaG11/backend/firebase_auth.dart';
 import 'package:KarmaG11/pages/chat_page.dart';
+import 'package:KarmaG11/pages/favor_board_page.dart';
+import 'package:KarmaG11/pages/favor_page.dart';
 import 'package:KarmaG11/pages/home_page.dart';
 import 'package:KarmaG11/providers/authProvider.dart';
 import 'package:flutter/material.dart';
@@ -16,6 +18,8 @@ class _BottonNavigatorState extends State<BottonNavigator> {
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static List<Widget> _widgetOptions = <Widget>[
     HomeView(),
+    FavorPage(),
+    FavorBoard(),
     ChatPage(),
   ];
 
@@ -34,12 +38,13 @@ class _BottonNavigatorState extends State<BottonNavigator> {
           IconButton(
             icon: new CircleAvatar(
                 backgroundColor: Colors.red,
-                child: Text("0",
+                child: Text("5",
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 18.0,
                         fontWeight: FontWeight.w500))),
-            tooltip: 'Points', onPressed: () {  },
+            tooltip: 'Points',
+            onPressed: () {},
           ),
           IconButton(
               icon: const Icon(Icons.exit_to_app),
@@ -54,8 +59,10 @@ class _BottonNavigatorState extends State<BottonNavigator> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(Icons.people), label: "Favors"),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: "My Favors"),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+          BottomNavigationBarItem(icon: Icon(Icons.article), label: "Favor"),
+          BottomNavigationBarItem(icon: Icon(Icons.list), label: "Board"),
+          BottomNavigationBarItem(icon: Icon(Icons.chat), label: "Chat"),
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.blue,

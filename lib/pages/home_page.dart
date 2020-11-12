@@ -6,8 +6,26 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class HomeView extends StatelessWidget {
+  final int karmapoints = 5;
+  final String user = "user";
   @override
   Widget build(BuildContext context) {
+    Center(
+        child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+          Text(
+            "Karma: " + '$user',
+            style: TextStyle(
+                color: Colors.blue, fontSize: 25, fontWeight: FontWeight.bold),
+          ),
+          Text("Puntos de karma " + '$karmapoints',
+              style: TextStyle(
+                  color: Colors.blue,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold)),
+          Text("Últimos movimientos")
+        ]));
     return _buildBody(context);
   }
 
