@@ -10,25 +10,27 @@ class HomeView extends StatelessWidget {
   final String user = "user";
   @override
   Widget build(BuildContext context) {
-    Center(
+    return Center(
         child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
+          Spacer(),
           Text(
-            "Karma: " + '$user',
+            "Usuario: " + '$user',
             style: TextStyle(
                 color: Colors.blue, fontSize: 25, fontWeight: FontWeight.bold),
           ),
+          Spacer(),
           Text("Puntos de karma " + '$karmapoints',
               style: TextStyle(
                   color: Colors.blue,
                   fontSize: 20,
                   fontWeight: FontWeight.bold)),
-          Text("Últimos movimientos")
+          Text("Últimos movimientos"),
+          Spacer()
         ]));
-    return _buildBody(context);
+    //return _buildBody(context);
   }
-
   Widget _buildBody(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
       stream: Firestore.instance.collection('baby').snapshots(),

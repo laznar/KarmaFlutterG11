@@ -33,7 +33,7 @@ class _FavorPageState extends State<FavorPage> {
   @override
   Widget build(BuildContext context) {
     return Center(
-        child: Column(
+      child: Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: <Widget>[
         Text(

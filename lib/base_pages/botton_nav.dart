@@ -59,13 +59,13 @@ class _BottonNavigatorState extends State<BottonNavigator> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-          BottomNavigationBarItem(icon: Icon(Icons.article), label: "Favor"),
-          BottomNavigationBarItem(icon: Icon(Icons.list), label: "Board"),
-          BottomNavigationBarItem(icon: Icon(Icons.chat), label: "Chat"),
+          BottomNavigationBarItem(icon: Icon(Icons.home),backgroundColor: Colors.lightBlue, label: "Home"),
+          BottomNavigationBarItem(icon: Icon(Icons.article),backgroundColor: Colors.lightBlue, label: "Favor"),
+          BottomNavigationBarItem(icon: Icon(Icons.list),backgroundColor: Colors.lightBlue, label: "Board"),
+          BottomNavigationBarItem(icon: Icon(Icons.chat),backgroundColor: Colors.lightBlue, label: "Your Favors"),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.blue,
+        selectedItemColor: Colors.white,
         onTap: _onItemTapped,
       ),
     );
