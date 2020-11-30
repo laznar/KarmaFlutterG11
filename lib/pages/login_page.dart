@@ -16,31 +16,31 @@ class LoginView extends StatelessWidget {
         ),
         body: SingleChildScrollView(
           child: Center(
-
             child: Column(
               children: [
                 SizedBox(height: 20),
                 Container(
                   alignment: Alignment.center,
                   padding: EdgeInsets.all(0),
-                  child: Image.asset('assets/karma.png'),/*Text(
+                  child: Image.asset(
+                      'assets/karma.png'), /*Text(
                         'KARMA',
                         style: TextStyle(
                             color: Colors.indigo[900],
                             fontWeight: FontWeight.w500,
                             fontSize: 30),
-                      )*/),
+                      )*/
+                ),
                 Container(
-                  alignment: Alignment.center,
-                  padding: EdgeInsets.all(0),
-                  child: Text(
-                        'Login',
-                        style: TextStyle(
-                            color: Colors.blue,
-                            fontWeight: FontWeight.w500,
-                            fontSize: 30),
-                      )),
-
+                    alignment: Alignment.center,
+                    padding: EdgeInsets.all(0),
+                    child: Text(
+                      'Login',
+                      style: TextStyle(
+                          color: Colors.blue,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 30),
+                    )),
                 SizedBox(
                   height: 20,
                 ),
@@ -56,7 +56,6 @@ class LoginView extends StatelessWidget {
                   ),
                 ),
                 Container(
-
                   padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
                   child: TextFormField(
                     obscureText: true,
@@ -72,53 +71,44 @@ class LoginView extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Consumer<AuthProvider>(builder: (context, model, child) {
-                      return
-
-                        Container(
+                      return Container(
                           margin: EdgeInsets.all(10),
-                          child:RaisedButton(
-
-                          padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                          textColor: Colors.white,
-                          color: Colors.blue,
-                          child: Text(
-                            'Login',
-                            style: TextStyle(
-                              fontSize: 18.0,
+                          child: RaisedButton(
+                            padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                            textColor: Colors.white,
+                            color: Colors.blue,
+                            child: Text(
+                              'Login',
+                              style: TextStyle(
+                                fontSize: 18.0,
+                              ),
                             ),
-                          ),
-                          onPressed: () {
-                            _login(context, controllerEmail.text.trim(),
-                                controllerPassword.text, model);
-                          },
-                        )
-                        );
+                            onPressed: () {
+                              _login(context, controllerEmail.text.trim(),
+                                  controllerPassword.text, model);
+                            },
+                          ));
                     }),
                     Consumer<AuthProvider>(builder: (context, model, child) {
                       return Container(
                           margin: EdgeInsets.all(10),
-                          child:RaisedButton(
-                          textColor: Colors.white,
-                          color: Colors.blue,
-                          child: Text(
-                            'Sign up',
-                            style: TextStyle(
-                              fontSize: 18.0,
+                          child: RaisedButton(
+                            textColor: Colors.white,
+                            color: Colors.blue,
+                            child: Text(
+                              'Sign up',
+                              style: TextStyle(
+                                fontSize: 18.0,
+                              ),
                             ),
-                          ),
-                          onPressed: () {
-                            Navigator.of(context).push(
-                                MaterialPageRoute(builder: (context) => SignInView()));
-                          },
-                      )
-                      );
+                            onPressed: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => SignInView()));
+                            },
+                          ));
                     })
                   ],
-
-
                 ),
-
-
               ],
             ),
           ),
@@ -150,11 +140,10 @@ class LoginView extends StatelessWidget {
     return showDialog(
       builder: (context) {
         return AlertDialog(
-          title: Text(_title,
+          title: Text(
+            _title,
             style: TextStyle(
-                color: Colors.blue,
-                fontWeight: FontWeight.w500,
-                fontSize: 30),
+                color: Colors.blue, fontWeight: FontWeight.w500, fontSize: 30),
           ),
           content: Text(_message),
           actions: <Widget>[
@@ -162,15 +151,15 @@ class LoginView extends StatelessWidget {
                 textColor: Colors.white,
                 color: Colors.blue,
                 child: Text(
-                'OK',
-                style: TextStyle(
-                fontSize: 18.0,
-                ),
+                  'OK',
+                  style: TextStyle(
+                    fontSize: 18.0,
+                  ),
                 ),
                 onPressed: () {
                   Navigator.of(context).pop();
                 })
-            ],
+          ],
         );
       },
       context: context,

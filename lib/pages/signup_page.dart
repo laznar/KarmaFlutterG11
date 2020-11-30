@@ -57,7 +57,6 @@ class _SignInViewState extends State<SignInView> {
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         labelText: 'Email address',
-
                       ),
                       validator: (value) {
                         if (value.isEmpty) {
@@ -68,9 +67,7 @@ class _SignInViewState extends State<SignInView> {
                         return null;
                       },
                     ),
-
                   ),
-
                   Container(
                     padding: EdgeInsets.all(10),
                     child: TextFormField(
@@ -101,7 +98,7 @@ class _SignInViewState extends State<SignInView> {
                       form.save();
                       if (_formKey.currentState.validate()) {
                         _signUp(context, controllerEmail.text,
-                            controllerPassword.text, controllerName.text);
+                            controllerPassword.text, controllerName.text, 5);
                       }
                     },
                     textColor: Colors.white,
@@ -120,7 +117,8 @@ class _SignInViewState extends State<SignInView> {
         ));
   }
 
-  _signUp(BuildContext context, String email, String password, String name) {
+  _signUp(BuildContext context, String email, String password, String name,
+      int karma) {
     signUpWithFirebase(email, password, name).then((user) {
       print(user);
       _buildDialog(context, "Sign Up", "Sign Up OK").then((value) {
