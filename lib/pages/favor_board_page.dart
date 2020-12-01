@@ -142,6 +142,16 @@ class _FavorBoardState extends State<FavorBoard> {
                   Container(
                     padding: EdgeInsets.fromLTRB(10, 4, 10, 0),
                     child: Text(
+                      "Agregado exitosamente",
+
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          color: Colors.black, fontWeight:FontWeight.bold, fontSize: 20),
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.fromLTRB(10, 4, 10, 0),
+                    child: Text(
                       "$favor",
 
                       textAlign: TextAlign.center,
