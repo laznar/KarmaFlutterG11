@@ -58,7 +58,7 @@ class _BottonNavigatorState extends State<BottonNavigator> {
           IconButton(
             icon: new CircleAvatar(
                 backgroundColor: Colors.red,
-                child: Text('_$_karmapoints',
+                child: Text('$_karmapoints',
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 18.0,
