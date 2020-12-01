@@ -25,96 +25,135 @@ class _ChatPageState extends State<ChatPage> {
     databaseReference.child("messages").onChildAdded.listen(_onEntryAdded);
   }
 
+
+
   void _showFavor() async {
     return showDialog(
-        context: context,
-        barrierDismissible: false,
-        builder: (BuildContext context) {
-          return AlertDialog(
-              title: Text("New Favor",
-                style: TextStyle(
-                    color: Colors.blue,
-                    fontWeight: FontWeight.w500,
-                    fontSize: 30),
-              ),
-              content: SingleChildScrollView(
-              child: Column(
-                  children: <Widget>[
-                    Container(
-                      padding: EdgeInsets.all(10),
-                      child: TextFormField(
-                        obscureText: false,
-                        keyboardType: TextInputType.text,
-                        controller: this.controllerTipo,
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(),
-                          labelText: "Type",
-                          hintText: "Photocopy, Delivery food...",
-                        ),
-                      ),
-                    ),
-                    Container(
-                      padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                      child: TextFormField(
-                        obscureText: false,
-                        keyboardType: TextInputType.text,
-                        controller:this.controllerEspecificaciones,
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(),
-                          labelText: "Details",
-                          hintText: "Address, info ",
-                        ),
-                      ),
-                    ),
+      builder: (context) {
+        return AlertDialog(
+          shape: RoundedRectangleBorder(
+            side: BorderSide(
+              color: Colors.blue,
+              width: 5.0,
+            ),
+            borderRadius: BorderRadius.circular(26.0),
+          ),
+          backgroundColor: Colors.blue,
+          content: SingleChildScrollView(
+              child:Column(
 
+                children: [
+                  Container(
+                    padding: EdgeInsets.all(10),
+                    child: TextFormField(
 
-                  ],
-                ),
-              ),
-
-              actions: <Widget>[
-                RaisedButton(
-                    textColor: Colors.white,
-                    color: Colors.blue,
-                    child: Text(
-                      'Add',
-                      style: TextStyle(
-                        fontSize: 18.0,
-                      ),
-                    ),
-                    onPressed: () {
-                      if(this.controllerEspecificaciones.text!="" && this.controllerTipo.text!=""){
-                        Navigator.of(context).pop();
-                        // metodo que agregar el favor
-                      }else{
-                        new AlertDialog(
-                          title: Text("Favor",
-                            style: TextStyle(
-                                color: Colors.blue,
-                                fontWeight: FontWeight.w500,
-                                fontSize: 30),
+                      obscureText: false,
+                      keyboardType: TextInputType.text,
+                      controller: this.controllerTipo,
+                      decoration: InputDecoration(
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(25.0),
+                          borderSide: BorderSide(
+                            color: Colors.black
                           ),
-                          content: Text("Information is missing"),
-                          actions: <Widget>[
-                            RaisedButton(
-                                textColor: Colors.white,
-                                color: Colors.blue,
-                                child: Text(
-                                  'OK',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                  ),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(25.0),
+                          borderSide: BorderSide(
+                            color: Colors.white,
+                            width: 2.0,
+                          ),
+                        ),
+                        border: OutlineInputBorder(),
+                        labelText: "Type",
+                        labelStyle: TextStyle(
+                            color: Colors.white
+                        ),
+                        hintText: "Photocopy, Delivery food...",
+                      ),
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                    child: TextFormField(
+                      obscureText: false,
+                      keyboardType: TextInputType.text,
+                      controller:this.controllerEspecificaciones,
+                      decoration: InputDecoration(
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(25.0),
+                          borderSide: BorderSide(
+                              color: Colors.black
+                          ),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(25.0),
+                          borderSide: BorderSide(
+                            color: Colors.white,
+                            width: 2.0,
+                          ),
+                        ),
+
+                        border: OutlineInputBorder(),
+                        labelStyle: TextStyle(
+                            color: Colors.white
+                        ),
+                        labelText: "Details",
+                        hintText: "Address, info ",
+                      ),
+                    ),
+                  ),
+                ],
+              )),
+
+          actions: <Widget>[
+            Column(
+              children: [
+                IconButton(
+                    color: Colors.black,
+                    icon: Icon(Icons.check_circle, size: 40,),
+                  onPressed: () {
+                    if(this.controllerEspecificaciones.text!="" && this.controllerTipo.text!=""){
+                      Navigator.of(context).pop();
+                      // metodo que agregar el favor
+                    }else{
+                      new AlertDialog(
+                        title: Text("Favor",
+                          style: TextStyle(
+                              color: Colors.blue,
+                              fontWeight: FontWeight.w500,
+                              fontSize: 30),
+                        ),
+                        content: Text("Information is missing"),
+                        actions: <Widget>[
+                          RaisedButton(
+                              textColor: Colors.white,
+                              color: Colors.blue,
+                              child: Text(
+                                'OK',
+                                style: TextStyle(
+                                  fontSize: 18.0,
                                 ),
-                                onPressed: () {
-                                  Navigator.of(context).pop();
-                                })
-                          ],
-                        );
-                      }
-                    })
-              ]);
-        });
+                              ),
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              })
+                        ],
+                      );
+                    }
+                  })
+
+              ],
+            )
+
+          ],
+        );
+      },
+      context: context,
+    );
   }
+
+
 
   void _addFavor(){
 
@@ -145,4 +184,5 @@ class _ChatPageState extends State<ChatPage> {
        )
     );
   }
+
 }

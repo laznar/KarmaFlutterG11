@@ -4,13 +4,14 @@ import 'package:KarmaG11/providers/authProvider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 
-class HomePage extends StatefulWidget {
-  HomeView createState() => HomeView();
+class HomeView extends StatefulWidget {
+  HomePage createState() => HomePage();
 }
 
-class HomeView extends State<HomePage> {
+class HomePage extends State<HomeView> {
   String _user;
   int _karmapoints;
   Future<void> _getUserData() async {
@@ -40,17 +41,34 @@ class HomeView extends State<HomePage> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
           Spacer(),
+          Container(
+            width: 100.0,
+            alignment: Alignment.center,
+            padding: EdgeInsets.all(0),
+            child: Icon(
+              Icons.account_circle_outlined,
+              size: 80,
+              color: Colors.blue,
+            ),
+          ),
           Text(
-            "Usuario: " + '$_user',
+            "Bienvenido " + '$_user',
             style: TextStyle(
                 color: Colors.blue, fontSize: 25, fontWeight: FontWeight.bold),
+            textAlign: TextAlign.center,
           ),
-          Spacer(),
-          Text("Puntos de karma " + '$_karmapoints',
+          SizedBox(height: 30),
+          Text(
+              "Gracias por hacer parte de nuestra comunidad con " +
+                  '$_karmapoints' +
+                  ' puntos de Karma',
+              textAlign: TextAlign.center,
               style: TextStyle(
-                  color: Colors.blue,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold)),
+                color: Colors.blue,
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              )),
+          SizedBox(height: 20),
           Text("Últimos movimientos"),
           Spacer()
         ]));

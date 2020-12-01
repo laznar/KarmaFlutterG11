@@ -20,13 +20,13 @@ class _BottonNavigatorState extends State<BottonNavigator> {
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static List<Widget> _widgetOptions = <Widget>[
-    HomePage(),
+    HomeView(),
     FavorPage(),
     FavorBoard(),
     ChatPage(),
   ];
 
-  Future<void> _getUserData() async {
+  Future<void> _getUserKarma() async {
     Firestore.instance
         .collection('users')
         .document((await FirebaseAuth.instance.currentUser()).uid)
@@ -40,7 +40,7 @@ class _BottonNavigatorState extends State<BottonNavigator> {
 
   void initState() {
     super.initState();
-    _getUserData();
+    _getUserKarma();
   }
 
   void _onItemTapped(int index) {

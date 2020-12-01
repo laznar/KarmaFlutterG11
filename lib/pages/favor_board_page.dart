@@ -134,8 +134,7 @@ class _FavorBoardState extends State<FavorBoard> {
             borderRadius: BorderRadius.circular(26.0),
           ),
           backgroundColor: Colors.blue,
-          content: Container(
-              height: 100,
+          content: SingleChildScrollView(
               child:Column(
 
                 children: [
