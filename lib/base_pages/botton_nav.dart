@@ -17,10 +17,10 @@ class _BottonNavigatorState extends State<BottonNavigator> {
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static List<Widget> _widgetOptions = <Widget>[
-    HomeView(),
-    FavorPage(),
-    FavorBoard(),
-    ChatPage(),
+    HomeView(), //home
+    FavorPage(), //favor
+    FavorBoard(), //board
+    ChatPage(), //tus favores
   ];
 
   void _onItemTapped(int index) {
