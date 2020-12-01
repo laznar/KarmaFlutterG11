@@ -53,14 +53,20 @@ class _BottonNavigatorState extends State<BottonNavigator> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('KARMA G11'),
+        title: const Text('G11'),
         actions: [
+          Container(
+            width: 160.0,
+            alignment: Alignment.center,
+            padding: EdgeInsets.all(0),
+            child: Image.asset('assets/karma.png', fit: BoxFit.fill),
+          ),
           IconButton(
             icon: new CircleAvatar(
-                backgroundColor: Colors.red,
-                child: Text('$_karmapoints',
+                backgroundColor: Colors.white,
+                child: Text('$_karmapoints'!=null?'$_karmapoints':'',
                     style: TextStyle(
-                        color: Colors.white,
+                        color: Colors.black,
                         fontSize: 18.0,
                         fontWeight: FontWeight.w500))),
             tooltip: 'Points',

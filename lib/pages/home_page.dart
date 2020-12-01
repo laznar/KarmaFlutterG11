@@ -52,16 +52,14 @@ class HomePage extends State<HomeView> {
             ),
           ),
           Text(
-            "Bienvenido " + '$_user',
+            '$_user'!=null?'Bienvenido $_user':'',
             style: TextStyle(
                 color: Colors.blue, fontSize: 25, fontWeight: FontWeight.bold),
             textAlign: TextAlign.center,
           ),
           SizedBox(height: 30),
           Text(
-              "Gracias por hacer parte de nuestra comunidad con " +
-                  '$_karmapoints' +
-                  ' puntos de Karma',
+                  '$_karmapoints'!=null?'Gracias por hacer parte de nuestra comunidad con $_karmapoints puntos de Karma':'',
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Colors.blue,
