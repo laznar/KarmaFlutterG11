@@ -4,6 +4,8 @@ import 'package:KarmaG11/pages/favor_board_page.dart';
 import 'package:KarmaG11/pages/favor_page.dart';
 import 'package:KarmaG11/pages/home_page.dart';
 import 'package:KarmaG11/providers/authProvider.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -14,14 +16,32 @@ class BottonNavigator extends StatefulWidget {
 
 class _BottonNavigatorState extends State<BottonNavigator> {
   int _selectedIndex = 0;
+  int _karmapoints;
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static List<Widget> _widgetOptions = <Widget>[
-    HomeView(), //home
-    FavorPage(), //favor
-    FavorBoard(), //board
-    ChatPage(), //tus favores
+    HomePage(),
+    FavorPage(),
+    FavorBoard(),
+    ChatPage(),
   ];
+
+  Future<void> _getUserData() async {
+    Firestore.instance
+        .collection('users')
+        .document((await FirebaseAuth.instance.currentUser()).uid)
+        .get()
+        .then((value) {
+      setState(() {
+        _karmapoints = value.data['karma'];
+      });
+    });
+  }
+
+  void initState() {
+    super.initState();
+    _getUserData();
+  }
 
   void _onItemTapped(int index) {
     setState(() {
@@ -38,7 +58,7 @@ class _BottonNavigatorState extends State<BottonNavigator> {
           IconButton(
             icon: new CircleAvatar(
                 backgroundColor: Colors.red,
-                child: Text("5",
+                child: Text('_$_karmapoints',
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 18.0,
@@ -59,10 +79,22 @@ class _BottonNavigatorState extends State<BottonNavigator> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(Icons.home),backgroundColor: Colors.lightBlue, label: "Home"),
-          BottomNavigationBarItem(icon: Icon(Icons.article),backgroundColor: Colors.lightBlue, label: "Favor"),
-          BottomNavigationBarItem(icon: Icon(Icons.list),backgroundColor: Colors.lightBlue, label: "Board"),
-          BottomNavigationBarItem(icon: Icon(Icons.chat),backgroundColor: Colors.lightBlue, label: "Your Favors"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              backgroundColor: Colors.lightBlue,
+              label: "Home"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.article),
+              backgroundColor: Colors.lightBlue,
+              label: "Favor"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.list),
+              backgroundColor: Colors.lightBlue,
+              label: "Board"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.chat),
+              backgroundColor: Colors.lightBlue,
+              label: "Your Favors"),
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.white,

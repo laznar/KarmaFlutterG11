@@ -2,12 +2,37 @@ import 'package:KarmaG11/backend/firebase_auth.dart';
 import 'package:KarmaG11/models/karma_model.dart';
 import 'package:KarmaG11/providers/authProvider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class HomeView extends StatelessWidget {
-  final int karmapoints = 5;
-  final String user = "user";
+class HomePage extends StatefulWidget {
+  HomeView createState() => HomeView();
+}
+
+class HomeView extends State<HomePage> {
+  String _user;
+  int _karmapoints;
+  Future<void> _getUserData() async {
+    Firestore.instance
+        .collection('users')
+        .document((await FirebaseAuth.instance.currentUser()).uid)
+        .get()
+        .then((value) {
+      setState(() {
+        _user = value.data['name'].toString();
+        _karmapoints = value.data['karma'];
+      });
+    });
+  }
+
+  void initState() {
+    super.initState();
+    _getUserData();
+  }
+
+  //final int karmapoints = 5;
+  //final String user = "user";
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -16,12 +41,12 @@ class HomeView extends StatelessWidget {
             children: <Widget>[
           Spacer(),
           Text(
-            "Usuario: " + '$user',
+            "Usuario: " + '$_user',
             style: TextStyle(
                 color: Colors.blue, fontSize: 25, fontWeight: FontWeight.bold),
           ),
           Spacer(),
-          Text("Puntos de karma " + '$karmapoints',
+          Text("Puntos de karma " + '$_karmapoints',
               style: TextStyle(
                   color: Colors.blue,
                   fontSize: 20,
@@ -31,6 +56,7 @@ class HomeView extends StatelessWidget {
         ]));
     //return _buildBody(context);
   }
+
   Widget _buildBody(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
       stream: Firestore.instance.collection('baby').snapshots(),

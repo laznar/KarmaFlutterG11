@@ -35,6 +35,6 @@ class BaseHomeApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<BusinessLogicProvider>(
-        create: (context) => BusinessLogicProvider(), child: HomeView());
+        create: (context) => BusinessLogicProvider(), child: HomePage());
   }
 }
