@@ -94,19 +94,14 @@ class _FavorBoardState extends State<FavorBoard> {
         body: SingleChildScrollView(
             child: Center(
                 child: Column(children: [
+                  SizedBox(height: 40),
                   Container(
-                    width: 280.0,
+                    width: 160.0,
                     alignment: Alignment.center,
                     padding: EdgeInsets.all(0),
                     child: Image.asset('assets/karma.png', fit: BoxFit.fill),
                   ),
-                  Container(
-                    width: 100.0,
-                    alignment: Alignment.center,
-                    padding: EdgeInsets.all(0),
-                    child:
-                    Icon(Icons.live_help)
-                  ),
+
                   SizedBox(height: 10),
                   Container(
                       alignment: Alignment.center,
