@@ -45,9 +45,10 @@ Future<String> signUpWithFirebase(email, password, name) async {
   }
   final FirebaseUser user = await _auth.currentUser();
   final uid = user.uid;
+  final int karma = 5;
   print('signUpWithFirebase Ok with uid ' + uid);
 
-  currentSignedInUser = User(email: email, name: name, uid: uid);
+  currentSignedInUser = User(email: email, name: name, uid: uid, karma: karma);
 
   await db
       .collection('users')
