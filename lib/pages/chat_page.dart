@@ -2,12 +2,13 @@ import 'package:KarmaG11/backend/firebase_real_time.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 
-class FavorPage extends StatefulWidget { //en realidad es la pagina de  chat
+class ChatePage extends StatefulWidget {
+  //en realidad es la pagina de  chat
   @override
-  _FavorPageState createState() => _FavorPageState();
+  _ChatePageState createState() => _ChatePageState();
 }
 
-class _FavorPageState extends State<FavorPage> {
+class _ChatePageState extends State<ChatePage> {
   final controllerCantidad = TextEditingController();
   final controllerObjeto = TextEditingController();
   final controllerCodigo = TextEditingController();
@@ -33,7 +34,7 @@ class _FavorPageState extends State<FavorPage> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Column(
+        child: Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: <Widget>[
         Text(

@@ -1,7 +1,7 @@
 import 'package:KarmaG11/backend/firebase_auth.dart';
 import 'package:KarmaG11/pages/myfavors_page.dart';
 import 'package:KarmaG11/pages/favor_board_page.dart';
-import 'package:KarmaG11/pages/favor_page.dart';
+import 'package:KarmaG11/pages/chat_page.dart';
 import 'package:KarmaG11/pages/home_page.dart';
 import 'package:KarmaG11/providers/authProvider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -21,7 +21,7 @@ class _BottonNavigatorState extends State<BottonNavigator> {
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static List<Widget> _widgetOptions = <Widget>[
     HomeView(),
-    FavorPage(),
+    ChatePage(),
     FavorBoard(),
     MyFavors(),
   ];
@@ -92,7 +92,7 @@ class _BottonNavigatorState extends State<BottonNavigator> {
           BottomNavigationBarItem(
               icon: Icon(Icons.chat),
               backgroundColor: Colors.lightBlue,
-              label: "Favor"),
+              label: "Chat"),
           BottomNavigationBarItem(
               icon: Icon(Icons.list),
               backgroundColor: Colors.lightBlue,
