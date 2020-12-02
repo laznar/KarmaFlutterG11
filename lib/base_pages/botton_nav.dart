@@ -1,4 +1,5 @@
 import 'package:KarmaG11/backend/firebase_auth.dart';
+import 'package:KarmaG11/backend/firebase_favor.dart';
 import 'package:KarmaG11/pages/myfavors_page.dart';
 import 'package:KarmaG11/pages/favor_board_page.dart';
 import 'package:KarmaG11/pages/chat_page.dart';
@@ -70,7 +71,9 @@ class _BottonNavigatorState extends State<BottonNavigator> {
                         fontSize: 18.0,
                         fontWeight: FontWeight.w500))),
             tooltip: 'Points',
-            onPressed: () {},
+            onPressed: () {
+              getKarma();
+            },
           ),
           IconButton(
               icon: const Icon(Icons.exit_to_app),

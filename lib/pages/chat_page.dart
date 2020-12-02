@@ -3,7 +3,6 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 
 class ChatPage extends StatefulWidget {
-  //en realidad es la pagina de  chat
   @override
   _ChatPageState createState() => _ChatPageState();
 }

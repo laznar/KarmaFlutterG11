@@ -4,6 +4,7 @@ class Favor {
   final int favorID;
   final String type;
   final String details;
+  final String state;
   final String ownerID;
   final int assignedID;
 
@@ -11,6 +12,7 @@ class Favor {
       {@required this.favorID,
       @required this.type,
       @required this.details,
+      @required this.state,
       @required this.ownerID,
       this.assignedID});
 
@@ -19,6 +21,7 @@ class Favor {
       'favorID': favorID,
       'type': type,
       'details': details,
+      'state': state,
       'ownerID': ownerID,
       'assignedID': assignedID
     };
@@ -29,6 +32,8 @@ class Favor {
         favorID: map['favorID'],
         type: map['type'],
         details: map['details'],
-        ownerID: map['ownerID']);
+        state: map['state'],
+        ownerID: map['ownerID'],
+        assignedID: map['assignedID']);
   }
 }
