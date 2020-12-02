@@ -1,5 +1,5 @@
 import 'package:KarmaG11/backend/firebase_auth.dart';
-import 'package:KarmaG11/pages/chat_page.dart';
+import 'package:KarmaG11/pages/myfavors_page.dart';
 import 'package:KarmaG11/pages/favor_board_page.dart';
 import 'package:KarmaG11/pages/favor_page.dart';
 import 'package:KarmaG11/pages/home_page.dart';
@@ -23,7 +23,7 @@ class _BottonNavigatorState extends State<BottonNavigator> {
     HomeView(),
     FavorPage(),
     FavorBoard(),
-    ChatPage(),
+    MyFavors(),
   ];
 
   Future<void> _getUserKarma() async {
@@ -64,7 +64,7 @@ class _BottonNavigatorState extends State<BottonNavigator> {
           IconButton(
             icon: new CircleAvatar(
                 backgroundColor: Colors.white,
-                child: Text('$_karmapoints'!=null?'$_karmapoints':'',
+                child: Text('$_karmapoints' != null ? '$_karmapoints' : '',
                     style: TextStyle(
                         color: Colors.black,
                         fontSize: 18.0,
