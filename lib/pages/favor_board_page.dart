@@ -72,6 +72,34 @@ class _FavorBoardState extends State<FavorBoard> {
         ),
       );
     }
+    void  _search(String s) {
+
+      //return  s.toLowerCase();
+      //que busque en el array y devuelva una lista con los matchs y se los asigne a las variables
+
+    }
+    final buscador = TextField(
+      onChanged: (text) {
+        _search(text);
+      },
+      decoration: new InputDecoration(
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.blue, width: 2.0),
+          ),
+          border: new OutlineInputBorder(
+            borderRadius: const BorderRadius.all(
+              const Radius.circular(10.0),
+            ),
+          ),
+          contentPadding: EdgeInsets.only(top: 10, left: 10),
+          filled: true,
+          hintStyle: new TextStyle(color: Colors.blue),
+          hintText: "Buscar",
+          fillColor: Colors.white38,
+          suffixIcon: Icon(Icons.search, color: Colors.blue,)
+      ),
+    );
+
 
     Widget myListView(BuildContext context) {
       // backing data
@@ -108,7 +136,11 @@ class _FavorBoardState extends State<FavorBoard> {
                             fontWeight: FontWeight.w500,
                             fontSize: 20),
                       )),
-
+                  Container(
+                    height: 40,
+                    margin: EdgeInsets.only(top: 40, right: 21, left: 21),
+                    child: buscador,
+                  ),
                   Container(
                     margin: EdgeInsets.only(top: 20, right: 21, left: 21),
                     child: myListView(context),
