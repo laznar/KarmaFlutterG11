@@ -2,13 +2,13 @@ import 'package:KarmaG11/backend/firebase_real_time.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 
-class ChatePage extends StatefulWidget {
+class ChatPage extends StatefulWidget {
   //en realidad es la pagina de  chat
   @override
-  _ChatePageState createState() => _ChatePageState();
+  _ChatPageState createState() => _ChatPageState();
 }
 
-class _ChatePageState extends State<ChatePage> {
+class _ChatPageState extends State<ChatPage> {
   final controllerCantidad = TextEditingController();
   final controllerObjeto = TextEditingController();
   final controllerCodigo = TextEditingController();

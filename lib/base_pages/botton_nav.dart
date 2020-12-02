@@ -21,7 +21,7 @@ class _BottonNavigatorState extends State<BottonNavigator> {
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static List<Widget> _widgetOptions = <Widget>[
     HomeView(),
-    ChatePage(),
+    ChatPage(),
     FavorBoard(),
     MyFavors(),
   ];
