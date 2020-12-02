@@ -95,12 +95,7 @@ class _FavorBoardState extends State<FavorBoard> {
             child: Center(
                 child: Column(children: [
                   SizedBox(height: 40),
-                  Container(
-                    width: 160.0,
-                    alignment: Alignment.center,
-                    padding: EdgeInsets.all(0),
-                    child: Image.asset('assets/karma.png', fit: BoxFit.fill),
-                  ),
+
 
                   SizedBox(height: 10),
                   Container(

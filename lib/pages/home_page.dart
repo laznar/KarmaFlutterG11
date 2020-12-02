@@ -67,7 +67,7 @@ class HomePage extends State<HomeView> {
                 fontWeight: FontWeight.bold,
               )),
           SizedBox(height: 20),
-          Text("Últimos movimientos"),
+          Text("Recuerda que para pedir favores gastas 2 karmas y por cada favor que realices ganas 1 karma",textAlign: TextAlign.center,),
           Spacer()
         ]));
     //return _buildBody(context);

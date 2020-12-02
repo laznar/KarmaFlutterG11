@@ -2,7 +2,7 @@ import 'package:KarmaG11/backend/firebase_real_time.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 
-class FavorPage extends StatefulWidget {
+class FavorPage extends StatefulWidget { //en realidad es la pagina de  chat
   @override
   _FavorPageState createState() => _FavorPageState();
 }

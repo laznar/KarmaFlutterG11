@@ -9,9 +9,10 @@ class ChatPage extends StatefulWidget {
   _ChatPageState createState() => _ChatPageState();
 }
 
-class _ChatPageState extends State<ChatPage> {
+class _ChatPageState extends State<ChatPage> { //enrealidad es la pagina de tus favores
   final controllerTipo = TextEditingController();
   final controllerEspecificaciones= TextEditingController();
+
   void _sendMsg() {
     sendChatMsg("My Text");
   }
@@ -136,6 +137,7 @@ class _ChatPageState extends State<ChatPage> {
                                 ),
                               ),
                               onPressed: () {
+                                _addFavor();
                                 Navigator.of(context).pop();
                               })
                         ],
@@ -153,7 +155,76 @@ class _ChatPageState extends State<ChatPage> {
     );
   }
 
+  Widget card(String favor, String estado,int index) {
+    return Container(
+      child: Card(
+        color: Colors.blue,
+        elevation: 5,
+        shape: RoundedRectangleBorder(
+          side: BorderSide(
+            color: Colors.blue,
+            width: 5.0,
+          ),
+          borderRadius: BorderRadius.circular(26.0),
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            ListTile(
+              contentPadding: EdgeInsets.only(top: 2),
+              title:
+              Padding(
+                padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                child: Text(
+                  '$favor',
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500),
+                  textAlign: TextAlign.center,
+                ),
+              ),
 
+              subtitle:Padding(
+                padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                child: Text(
+                  '$estado',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 13,
+                      fontWeight: FontWeight.w500),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+
+              onTap: () {
+                setState(() {
+
+
+                });
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+
+  Widget myListView(BuildContext context) {
+    // backing data
+    final misfavores = ['fotocopia', 'comprar cena'];
+    final estados = ['en curso', 'finalizado'];
+    return ListView.builder(
+      scrollDirection: Axis.vertical,
+      shrinkWrap: true,
+      padding: const EdgeInsets.all(8),
+      itemCount: misfavores.length,
+      itemBuilder: (context, index) {
+        return card(misfavores[index], estados[index],index);
+      },
+    );
+  }
 
   void _addFavor(){
 
@@ -169,20 +240,57 @@ class _ChatPageState extends State<ChatPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: 
-        Container(
-          margin: EdgeInsets.fromLTRB(300, 450, 10, 10),
-          child:FloatingActionButton(
-          
-          tooltip: 'Add favor',
-          child: Icon(Icons.add),
-          onPressed: () {
-            _showFavor();
-          },
-        ),
+    return Scaffold(
+        backgroundColor: Colors.white,
+
+        body: SingleChildScrollView(
+        child: Center(
+        child: Column(
+        children: [
+
+          Container(
+              alignment: Alignment.center,
+              padding: EdgeInsets.fromLTRB(0, 40, 0, 0),
+              child: Text(
+                'MY FAVORS',
+                style: TextStyle(
+                    color:Colors.blue,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 20),
+              )),
+          Container(
+              margin: EdgeInsets.fromLTRB(21, 20, 21, 0),
+              child:FlatButton(
+                color: Colors.black,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(18.0),
+                    side: BorderSide(color: Colors.black)
+                ),
+
+                child: Text(
+                  'Add',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500),
+                  textAlign: TextAlign.center,
+                ),
+                onPressed: () {
+                  _showFavor();                },
+              )),
+          Container(
+            margin: EdgeInsets.only(top: 20, right: 21, left: 21),
+            child: myListView(context),
+          ),
+
+
+
+        ]
+
        )
-    );
+    )
+
+    ));
   }
 
 }
