@@ -13,3 +13,16 @@ get _getFirebaseUID async {
   final uid = user.uid;
   return uid;
 }
+
+Future<String> createFavor(type, details) async {
+  final FirebaseUser user = await _auth.currentUser();
+  final uid = user.uid;
+  Random random = new Random();
+  int randomNumber = random.nextInt(1000);
+  currentFavor =
+      Favor(favorID: randomNumber, type: type, details: details, ownerID: uid);
+
+  await db.collection('favors').document(uid).setData(currentFavor.toMap());
+
+  return Future.value("OK");
+}

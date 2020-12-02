@@ -56,7 +56,7 @@ class _BottonNavigatorState extends State<BottonNavigator> {
         title: const Text('G11'),
         actions: [
           Container(
-            width: 160.0,
+            width: 100.0,
             alignment: Alignment.center,
             padding: EdgeInsets.all(0),
             child: Image.asset('assets/karma.png', fit: BoxFit.fill),
@@ -90,7 +90,7 @@ class _BottonNavigatorState extends State<BottonNavigator> {
               backgroundColor: Colors.lightBlue,
               label: "Home"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.article),
+              icon: Icon(Icons.chat),
               backgroundColor: Colors.lightBlue,
               label: "Favor"),
           BottomNavigationBarItem(
@@ -98,7 +98,7 @@ class _BottonNavigatorState extends State<BottonNavigator> {
               backgroundColor: Colors.lightBlue,
               label: "Board"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.chat),
+              icon: Icon(Icons.article),
               backgroundColor: Colors.lightBlue,
               label: "Your Favors"),
         ],
