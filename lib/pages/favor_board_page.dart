@@ -32,7 +32,7 @@ class _FavorBoardState extends State<FavorBoard> {
                 contentPadding: EdgeInsets.only(top: 2),
                 title:
                         Padding(
-                          padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
+                          padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
                           child: Text(
                             '$favor',
                             style: TextStyle(
@@ -46,7 +46,7 @@ class _FavorBoardState extends State<FavorBoard> {
                         ),
 
                 subtitle:Padding(
-                          padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
+                          padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
                           child: Text(
                             '$detalle',
                             style: TextStyle(
