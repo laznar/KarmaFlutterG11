@@ -4,7 +4,7 @@ class Favor {
   final int favorID;
   final String type;
   final String details;
-  final int ownerID;
+  final String ownerID;
   final int assignedID;
 
   Favor(
